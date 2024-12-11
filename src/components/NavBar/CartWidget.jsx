@@ -5,7 +5,7 @@ function CartWidget() {
   return (
     <div className='carrito'>
         <FaShoppingCart size="30px"/>
-        <span className='badge'>5</span>
+        {/* <span className='badge'>5</span> */}
     </div>
   )
 }
