@@ -1,0 +1,50 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.navbar {
+    display: flex;
+    height: 120px;
+    background-color:lightgray;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-item {
+    margin-right: 1rem;
+    position: relative;
+}
+
+.navbar a:hover {
+    color:chocolate;
+}
+.navbar a {
+    color: black;
+    text-decoration: none;
+}
+
+.logo {
+    width: 150px;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ee7787;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+  }
+
+  .carrito {
+    position: relative;
+  }
