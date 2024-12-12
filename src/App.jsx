@@ -4,7 +4,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import NavBar from './components/NavBar/NavBar';
 import Layout from './components/paginas/Layout';
 import Home from './components/paginas/Home';
-import NoPage from './components/paginas/NoPage';
+import NoPage from './components/Paginas/NoPage';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
