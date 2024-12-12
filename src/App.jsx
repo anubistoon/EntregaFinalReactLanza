@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import NavBar from './components/NavBar/NavBar';
-import Layout from './components/paginas/Layout';
-import Home from './components/paginas/Home';
-import NoPage from './components/paginas/NoPage';
+import Layout from './components/Paginas/Layout';
+import Home from './components/Paginas/Home';
+import NoPage from './components/Paginas/NoPage';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
