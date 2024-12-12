@@ -1,13 +1,25 @@
-import {FaShoppingCart} from 'react-icons/fa'
-import "./Navbar.css"
+import carrito from "../../assets/cartBlanco.png";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
 
-function CartWidget() {
+export const CartWidget = () => {
+  const { items = [] } = useContext(CarritoContext); // Asegura un valor por defecto
+  const totalItems = items.reduce((acc, item) => acc + (item.quantity || 0), 0); // Maneja valores indefinidos
+
   return (
-    <div className='carrito'>
-        <FaShoppingCart size="30px"/>
-        {/* <span className='badge'>5</span> */}
-    </div>
-  )
-}
+    <>
+      <Link to="/checkout">
+        <img
+          className="imgCarrito"
+          src={carrito}
+          alt="Carrito de compras"
+          style={{ width: "30px", height: "auto" }}
+        />
+        {totalItems > 0 && <span className="badge">{totalItems}</span>} {/* Clase para estilos adicionales */}
+      </Link>
+    </>
+  );
+};
 
-export default CartWidget
+export default CartWidget;

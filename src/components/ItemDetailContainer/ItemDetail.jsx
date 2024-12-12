@@ -42,7 +42,8 @@ const ItemDetail = ({ product }) => {
       <p><strong>Modelo:</strong> {product.model}</p>
       <p><strong>Descripción:</strong> {product.description}</p>
       <p><strong>Stock:</strong> {product.stock}</p>
-      <p><strong>Precio:</strong> {product.precio}</p>
+      <ItemCount stock={product.stock} onAdd={onAdd} />
+      <p><strong>Precio:</strong> {product.precio}</p>    
 
       {/* Botón para agregar al carrito */}
       <button
