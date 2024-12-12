@@ -4,7 +4,6 @@ import getProducts from "../../data/getProducts";
 import { useParams } from "react-router-dom";
 import "../ItemListContainer/itemListContainer.css";
 
-
 const ItemListContainer = ({ saludo }) => {
   const [products, setProducts] = useState([]);
 
