@@ -60,7 +60,7 @@ function Item() {
         <p><strong>Modelo:</strong> {product.model}</p>
         <p><strong>Descripción:</strong> {product.description}</p>
         <p><strong>Stock:</strong> {product.stock}</p>
-        <p><strong>Precio:</strong> {product.precio}</p>
+        <p><strong>Precio:</strong> {product.price}</p>
       </div>
     </div>
   );
