@@ -45,7 +45,7 @@ const ItemDetail = ({ product }) => {
 
       <ItemCount stock={product.stock} onAdd={addToCart} />
 
-      <p><strong>Precio:</strong> {product.precio}</p>
+      <p><strong>Precio:</strong> {product.price}</p>
     </div>
   );
 };

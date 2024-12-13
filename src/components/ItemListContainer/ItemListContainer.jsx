@@ -58,7 +58,7 @@ function ItemListContainer() {
             <p><strong>Modelo:</strong> {celular.model}</p>
             <p><strong>Descripción:</strong> {celular.description}</p>
             <p><strong>Stock:</strong> {celular.stock}</p>
-            <p><strong>Precio:</strong> {celular.precio}</p>
+            <p><strong>Precio:</strong> {celular.price}</p>
 
             <Link 
               to={`/detail/${celular.id}`} 
