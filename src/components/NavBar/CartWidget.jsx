@@ -1,22 +1,24 @@
-import carrito from "../../assets/cartBlanco.png";
+import Carrito from "../../assets/cartBlanco.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CarritoContext } from "../../context/CarritoContext";
+import { useCarrito } from "../../context/CarritoContext";
 
 export const CartWidget = () => {
-  const { items = [] } = useContext(CarritoContext); // Asegura un valor por defecto
-  const totalItems = items.reduce((acc, item) => acc + (item.quantity || 0), 0); // Maneja valores indefinidos
+  const { carrito } = useCarrito();
+
+  const totalItems = Array.isArray(carrito)
+    ? carrito.reduce((acc, item) => acc + (item.cantidad || 0), 0)
+    : 0; 
 
   return (
     <>
       <Link to="/checkout">
         <img
           className="imgCarrito"
-          src={carrito}
+          src={Carrito}
           alt="Carrito de compras"
           style={{ width: "30px", height: "auto" }}
         />
-        {totalItems > 0 && <span className="badge">{totalItems}</span>} {/* Clase para estilos adicionales */}
+        {totalItems > 0 && <span className="badge">{totalItems}</span>}
       </Link>
     </>
   );

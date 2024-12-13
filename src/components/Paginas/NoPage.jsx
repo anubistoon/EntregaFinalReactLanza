@@ -6,7 +6,6 @@ function NoPage() {
     <div className="titulo vh-100" style={{ textAlign: 'center', padding: '20px' }}>
       <h2>Página no encontrada!</h2>
       
-      {/* Mostrar imagen error404 */}
       <img 
         src="https://res.cloudinary.com/dpluvkh95/image/upload/v1733883445/error404_d5i0vc.webp" 
         alt="Error 404" 

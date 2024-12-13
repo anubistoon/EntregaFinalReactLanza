@@ -8,7 +8,7 @@ const ItemList = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    const productsRef = collection(db, "celulares"); // Asume que la colección se llama "celulares"
+    const productsRef = collection(db, "celulares");
 
     getDocs(productsRef)
       .then((snapshot) => {
@@ -16,7 +16,7 @@ const ItemList = () => {
         setProducts(productsList);
       })
       .catch(error => console.error("Error obteniendo los productos:", error))
-      .finally(() => setLoading(false)); // Deja de cargar cuando se haya terminado la consulta
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading) {

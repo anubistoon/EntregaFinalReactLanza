@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { CarritoProvider } from './context/CarritoContext';
 import NavBar from './components/NavBar/NavBar';
-import Layout from './components/Paginas/Layout';
 import Home from './components/Paginas/Home';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import NoPage from './components/Paginas/NoPage';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 function App() {
-  const [celulares, setCelulares] = useState([]); // Estado para almacenar los documentos de la colección
+  const [celulares, setCelulares] = useState([]);
   const db = getFirestore();
 
   useEffect(() => {
     const fetchCelulares = async () => {
       try {
-        const celularesRef = collection(db, "celulares"); // Referencia a la colección "celulares"
-        const snapshot = await getDocs(celularesRef); // Obtener todos los documentos
+        const celularesRef = collection(db, "celulares");
+        const snapshot = await getDocs(celularesRef);
         const items = snapshot.docs.map(doc => ({
-          id: doc.id, // ID único del documento
-          ...doc.data(), // Datos del documento
+          id: doc.id,
+          ...doc.data(),
         }));
-        setCelulares(items); // Guardar los documentos en el estado
+        setCelulares(items);
       } catch (error) {
         console.error("Error al obtener los celulares:", error);
       }
@@ -31,20 +31,17 @@ function App() {
   }, [db]);
 
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route 
-            index 
-            element={<Home celulares={celulares} />} // Pasamos los datos a Home
-          />
+    <CarritoProvider>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home celulares={celulares} />} />
           <Route path="/category/:idCategory" element={<ItemListContainer />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
-        </Route>
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </CarritoProvider>
   );
 }
 

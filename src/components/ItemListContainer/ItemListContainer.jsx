@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
 function ItemListContainer() {
-  const { idCategory } = useParams(); // Obtiene el parámetro de la URL
+  const { idCategory } = useParams();
   const [celulares, setCelulares] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function ItemListContainer() {
 
     let q = celularesRef;
     if (idCategory) {
-      // Filtrar por categoría si se proporciona en la URL
+
       q = query(celularesRef, where("category", "==", idCategory));
     }
 
@@ -31,8 +31,8 @@ function ItemListContainer() {
           display: 'flex', 
           flexWrap: 'wrap', 
           gap: '20px', 
-          justifyContent: 'center', // Centra las cajas horizontalmente
-          alignItems: 'center', // Asegura que las cajas estén alineadas verticalmente
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         {celulares.map(celular => (
@@ -44,7 +44,7 @@ function ItemListContainer() {
               padding: '20px', 
               width: '250px', 
               textAlign: 'center',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Sombra para mejorar la estética
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             }}
           >
             {celular.image && (
@@ -59,7 +59,7 @@ function ItemListContainer() {
             <p><strong>Descripción:</strong> {celular.description}</p>
             <p><strong>Stock:</strong> {celular.stock}</p>
             <p><strong>Precio:</strong> {celular.precio}</p>
-            {/* Enlace a los detalles del celular */}
+
             <Link 
               to={`/detail/${celular.id}`} 
               style={{

@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 function Item() {
-  const { idProduct } = useParams(); // Obtiene el ID del producto de la URL
+  const { idProduct } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const db = getFirestore();
-    const productRef = doc(db, "celulares", idProduct); // Documento específico en Firestore
+    const productRef = doc(db, "celulares", idProduct);
 
     getDoc(productRef)
       .then(snapshot => {
@@ -44,7 +44,7 @@ function Item() {
       <p><strong>Modelo:</strong> {product.model}</p>
       <p><strong>Descripción:</strong> {product.description}</p>
       <p><strong>Stock:</strong> {product.stock}</p>
-      <p><strong>Precio:</strong> {product.precio}</p> {/* Agregar el precio si está disponible */}
+      <p><strong>Precio:</strong> {product.precio}</p>
       <div 
         style={{
           border: '1px solid #ccc', 
